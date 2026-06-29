@@ -1,0 +1,9 @@
+# Datos crudos - nunca se suben al repo 
+datos/raw/*.csv 
+datos/raw/*.zip 
+# Archivos de entorno Python 
+__pycache__/ 
+*.pyc 
+.env 
+# Jupyter checkpoints 
+.ipynb_checkpoints/ 
