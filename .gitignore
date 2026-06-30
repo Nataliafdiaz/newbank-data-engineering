@@ -1,9 +1,56 @@
-# Datos crudos - nunca se suben al repo 
-datos/raw/*.csv 
-datos/raw/*.zip 
-# Archivos de entorno Python 
-__pycache__/ 
-*.pyc 
-.env 
-# Jupyter checkpoints 
-.ipynb_checkpoints/ 
+# =========================
+# DATASETS
+# =========================
+
+data/raw/*
+data/processed/*
+data/analytical/*
+
+# Mantener estructura de carpetas
+!data/raw/README.md
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/analytical/.gitkeep
+
+# =========================
+# PYTHON
+# =========================
+
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Variables de entorno
+.env
+
+# =========================
+# JUPYTER
+# =========================
+
+.ipynb_checkpoints/
+
+# =========================
+# LOGS
+# =========================
+
+logs/*
+!logs/.gitkeep
+
+# =========================
+# SISTEMA OPERATIVO
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE
+# =========================
+
+.vscode/
+.idea/
