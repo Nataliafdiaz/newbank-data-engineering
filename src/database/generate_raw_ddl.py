@@ -34,22 +34,43 @@ def main() -> None:
     csv_files = sorted(RAW_DATA_PATH.glob("*.csv"))
 
     ddl_blocks = [
-        "-- ============================================================",
+        "-- ==========================================================",
         "-- NewBank Credit Decision Platform",
-        "-- Physical Data Model",
-        "-- File: 02_create_tables.sql",
-        "-- Description: Creates raw tables for the Home Credit dataset.",
-        "-- Generated automatically from data/raw CSV headers.",
-        "-- ============================================================",
+        "-- Modelo Físico de Datos",
+        "-- Archivo: 02_create_tables.sql",
+        "-- Descripción: Crea las tablas de la capa raw a partir de los",
+        "-- encabezados de los archivos CSV del dataset Home Credit.",
+        "-- Generado automáticamente mediante generate_raw_ddl.py.",
+        "-- ==========================================================",
+        "",
+        "-- ==========================================================",
+        "-- DECISIÓN DE DISEÑO - CAPA RAW",
+        "-- ==========================================================",
+        "-- Todas las columnas se crean intencionalmente con tipo TEXT.",
+        "--",
+        "-- El objetivo de la capa raw es almacenar los archivos CSV",
+        "-- exactamente como fueron recibidos, sin realizar conversiones",
+        "-- de tipos de datos ni aplicar reglas de negocio.",
+        "--",
+        "-- La conversión de tipos, las validaciones de calidad y las",
+        "-- transformaciones se implementarán posteriormente en la capa",
+        "-- staging durante el proceso ETL.",
+        "--",
+        "-- Esta estrategia garantiza la trazabilidad, la reproducibilidad",
+        "-- del proceso de carga y evita la pérdida de información durante",
+        "-- la ingesta inicial de los datos.",
+        "-- ==========================================================",
         "",
     ]
 
     for file_path in csv_files:
         ddl_blocks.append(generate_create_table(file_path))
 
+    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text("\n".join(ddl_blocks), encoding="utf-8")
 
-    print(f"DDL generated successfully: {OUTPUT_PATH}")
+    print("DDL generated successfully.")
+    print(f"Output file: {OUTPUT_PATH.name}")
     print(f"Tables generated: {len(csv_files)}")
 
 
