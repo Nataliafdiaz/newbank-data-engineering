@@ -1,0 +1,21 @@
+-- ==========================================================
+-- NewBank Credit Decision Platform
+-- Modelo Físico de Datos
+-- Archivo: 03_constraints.sql
+-- Descripción: Documenta la estrategia de constraints para la capa raw.
+-- Generado automáticamente mediante generate_raw_ddl.py.
+-- ==========================================================
+
+-- ==========================================================
+-- DECISIÓN DE DISEÑO - CONSTRAINTS EN RAW
+-- ==========================================================
+-- No se aplican PRIMARY KEY ni FOREIGN KEY en esta etapa.
+--
+-- Motivo:
+-- La capa raw debe aceptar los datos exactamente como llegan desde Kaggle.
+-- Antes de aplicar constraints físicas, se validará unicidad,
+-- duplicados e integridad referencial durante el proceso de calidad de datos.
+--
+-- Las constraints se definirán posteriormente sobre staging o analytical,
+-- cuando existan datos tipados, limpios y validados.
+-- ==========================================================

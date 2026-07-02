@@ -1,0 +1,21 @@
+-- ==========================================================
+-- NewBank Credit Decision Platform
+-- Modelo Físico de Datos
+-- Archivo: 04_index.sql
+-- Descripción: Documenta la estrategia inicial de índices para la capa raw.
+-- Generado automáticamente mediante generate_raw_ddl.py.
+-- ==========================================================
+
+-- ==========================================================
+-- DECISIÓN DE DISEÑO - ÍNDICES EN RAW
+-- ==========================================================
+-- No se crean índices en la capa raw antes de la carga inicial.
+--
+-- Motivo:
+-- Los índices pueden ralentizar la ingesta masiva de datos.
+-- Se definirán después de cargar y validar la información, en función de:
+--   1. claves de unión frecuentes;
+--   2. columnas usadas en filtros;
+--   3. necesidades de consultas analíticas;
+--   4. rendimiento observado en PostgreSQL.
+-- ==========================================================
